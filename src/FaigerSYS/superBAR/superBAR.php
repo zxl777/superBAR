@@ -27,8 +27,9 @@ class superBAR extends PluginBase{
         $this->getServer()->getScheduler()->scheduleDelayedTask(new LoaderTask($this, superBAR::$loader), 0);
     }
 
-    public function onCommand(CommandSender $sender, Command $command, $label, array $args){
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
         CommandController::executeCommand($this, $sender, $args);
+        return true;
     }
 
     /**

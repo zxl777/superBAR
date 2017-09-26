@@ -11,7 +11,6 @@ use FaigerSYS\superBAR\controller\DataController;
 use FaigerSYS\superBAR\controller\EventController;
 
 use FaigerSYS\superBAR\provider\ConfigProvider;
-use FaigerSYS\superBAR\provider\AddonProvider;
 
 class Loader extends BaseModule{
 
@@ -72,15 +71,6 @@ class Loader extends BaseModule{
         return $plugins;
     }
 
-    private function getAddons(){
-        if(!(($addons = $this->getData()->getAddonProvider()) instanceof AddonProvider))
-            $this->getData()->setAddonProvider($addons = new AddonProvider());
-        else
-            $addons->reloadAddons();
-
-        return $addons;
-    }
-
     public function loadAll($reload = false){
         $settings = $this->getSettings();
 
@@ -93,12 +83,11 @@ class Loader extends BaseModule{
         unset($settings['timer']);
 
         $plugins = $this->getPlugins($reload);
-        $addons = $this->getAddons();
 
         if(!(($HUD = $this->getData()->getHUD()) instanceof HUD))
-            $this->getData()->setHUD($HUD = new HUD($settings, $plugins, $addons));
+            $this->getData()->setHUD($HUD = new HUD($settings, $plugins));
         else
-            $HUD->setData($settings, $plugins, $addons);
+            $HUD->setData($settings, $plugins);
 
         $reload ? $this->getPlugin()->getServer()->getScheduler()->cancelTask($this->taskCache) : false;
         $this->taskCache = $this->getPlugin()->getServer()->getScheduler()->scheduleRepeatingTask(new HUDShowTask($this->getPlugin(), $HUD), $timer)->getTaskId();

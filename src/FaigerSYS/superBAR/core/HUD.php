@@ -5,8 +5,6 @@ namespace FaigerSYS\superBAR\core;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat as CLR;
 
-use FaigerSYS\superBAR\provider\AddonProvider;
-
 class HUD{
 
     const NO_PLUG = CLR::RED . 'NoPlugin' . CLR::RESET;
@@ -18,14 +16,11 @@ class HUD{
     /** @var array */
     private $settings = [];
 
-    /** @var \FaigerSYS\superBAR\provider\AddonProvider */
-    private $addons = null;
-
     /** @var array */
     private $displayTo = [];
 
-    public function __construct($settings, $plugins, $addons){
-        $this->setData($settings, $plugins, $addons);
+    public function __construct($settings, $plugins){
+        $this->setData($settings, $plugins);
     }
 
     public function processHUD(Server $server){
@@ -38,7 +33,6 @@ class HUD{
         $displayTo = $this->displayTo;
         $plugins = $this->plugins;
         $settings = $this->settings;
-        $addons = $this->addons;
 
         $ftree = HUD::FORMAT_TREE;
         $data = $settings['default'];
@@ -59,13 +53,6 @@ class HUD{
                 }
 
                 $format = $data['format'];
-                list($showHUD, $input, $output) = $addons->getFormatedAddons($p);
-                if(!$showHUD){
-                    $data['tip'] ? $p->sendTip($input) : $p->sendPopup($input);
-                    continue;
-                }else{
-                    $format = str_replace($input, $output, $format);
-                }
 
                 if($plugins['FactionsPro']){
                     if(((float)$plugins['FactionsPro']->getDescription()->getVersion()) < 1.5)
@@ -160,10 +147,9 @@ class HUD{
             unset($this->displayTo[$id]);
     }
 
-    public function setData($settings = false, $plugins = false, $addons = false){
+    public function setData($settings = false, $plugins = false){
         is_array($settings) ? $this->settings = $settings : false;
         is_array($plugins) ? $this->plugins = $plugins : false;
-        ($addons instanceof AddonProvider) ? $this->addons = $addons : false;
 
         $this->optimizeHUD();
     }

@@ -4,7 +4,6 @@ namespace FaigerSYS\superBAR\controller;
 
 use FaigerSYS\superBAR\core\HUD;
 use FaigerSYS\superBAR\provider\ConfigProvider;
-use FaigerSYS\superBAR\provider\AddonProvider;
 
 class DataController{
 
@@ -13,9 +12,6 @@ class DataController{
 
     /** @var \FaigerSYS\superBAR\provider\ConfigProvider */
     private $configProvider = null;
-
-    /** @var \FaigerSYS\superBAR\provider\AddonProvider */
-    private $addonProvider = null;
 
     /** @var \FaigerSYS\superBAR\controller\EventController */
     private $eventController = null;
@@ -37,14 +33,6 @@ class DataController{
 
     public function getConfigProvider(){
         return $this->configProvider;
-    }
-
-    public function setAddonProvider(AddonProvider $provider){
-        $this->addonProvider = $provider;
-    }
-
-    public function getAddonProvider(){
-        return $this->addonProvider;
     }
 
     public function setEventController(EventController $controller){
