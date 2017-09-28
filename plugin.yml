@@ -1,6 +1,6 @@
 name: superBAR
 main: FaigerSYS\superBAR\superBAR
-version: 1.6.3-alpha8
+version: 1.6.4-alpha8
 api: [3.0.0-ALPHA8]
 load: POSTWORLD
 author: FaigerSYS

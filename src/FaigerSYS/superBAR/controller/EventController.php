@@ -15,7 +15,8 @@ class EventController extends BaseModule implements Listener{
      * @priority NORMAL
      */
     public function onJoin(PlayerJoinEvent $e){
-        $display = ($this->getPlugin()->isDefaultEnabled() && $this->getPlugin()->hasPermission($player = $e->getPlayer(), 'superbar.use'));
+        $player = $e->getPlayer();
+        $display = ($this->getPlugin()->isDefaultEnabled() && $this->getPlugin()->hasPermission($player, 'superbar.use'));
         $this->getPlugin()->getHUD()->setDisplay($player->getName(), $display);
     }
 
