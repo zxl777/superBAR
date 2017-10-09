@@ -88,7 +88,7 @@ class superBAR extends PluginBase{
     }
 
     public function hasPermission(CommandSender $object, string $permission){
-        return ($object->hasPermission('superbar') || $object->hasPermission('superbar.' . $permission));
+        return ($object->hasPermission('superbar.' . $permission));
     }
 
     public function sendLog(string $text){
