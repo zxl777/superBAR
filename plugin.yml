@@ -1,7 +1,7 @@
 name: superBAR
 main: FaigerSYS\superBAR\superBAR
-version: 1.6.4-alpha8
-api: [3.0.0-ALPHA8]
+version: 1.6.5-1
+api: [3.0.0-ALPHA8, 3.0.0-ALPHA9]
 load: POSTWORLD
 author: FaigerSYS
 description: "Just good and customizable HUD"
@@ -14,9 +14,6 @@ commands:
   permission: "superbar.cmd"
 
 permissions:
- superbar:
-  default: op
-  description: "Use all features (commands and other) of superBAR"
  superbar.use:
   default: true
   description: "Use HUD (You can see HUD)"
