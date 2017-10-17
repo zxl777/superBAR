@@ -4,7 +4,7 @@ ver: 9
 ### Please do not change 'ver' ###
 
 #HUD format. For color use §.
-hud-format: "Hello, %NICK%\nOnline: %ONLINE%/%MAX_ONLINE%"
+hud-format: "§b%NICK% §3%TIME%\n§a在线:%ONLINE%人 §e金币:%MONEY% §9世界:%LEVEL% §f%X%.%Y%.%Z% §2CPU:%LOAD% §cTPS:%TPS% §b§f手持:%ITEM_ID%:%ITEM_META%"
 #Tip:
 # %NICK% - name of player
 # %MONEY% - count of player's money
