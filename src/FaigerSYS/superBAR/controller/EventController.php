@@ -15,10 +15,13 @@ class EventController extends BaseModule implements Listener{
      * @priority NORMAL
      */
     public function onJoin(PlayerJoinEvent $e){
+        
         $player = $e->getPlayer();
+
 //        $display = ($this->getPlugin()->isDefaultEnabled() && $this->getPlugin()->hasPermission($player, 'use'));
 //        $this->getPlugin()->getHUD()->setDisplay($player->getName(), $display);
         $this->getPlugin()->getHUD()->setDisplay($player->getName(), true);
+        $player->addTitle("Hello World");
     }
 
     /**
