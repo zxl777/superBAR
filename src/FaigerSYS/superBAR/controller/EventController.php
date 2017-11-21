@@ -24,7 +24,7 @@ class EventController extends BaseModule implements Listener{
 
         // $player->addTitle("Hello World");
 
-       $player->addTitle("Hello World", "Subtitle", 20,260, 20);
+       $player->addTitle("Hello World", "Subtitle", 80,1560, 80);
 
     }
 
