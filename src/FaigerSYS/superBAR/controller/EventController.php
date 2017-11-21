@@ -21,11 +21,11 @@ class EventController extends BaseModule implements Listener{
 //        $display = ($this->getPlugin()->isDefaultEnabled() && $this->getPlugin()->hasPermission($player, 'use'));
 //        $this->getPlugin()->getHUD()->setDisplay($player->getName(), $display);
         $this->getPlugin()->getHUD()->setDisplay($player->getName(), true);
-<<<<<<< HEAD
+
         $player->addTitle("Hello World");
-=======
-        //$player->addTitle("Title", "Subtitle", 20,60, 20);
->>>>>>> 1fdcdb074a944475e17b5ed64ce3476d835fd5c9
+
+//        $player->addTitle("Title", "Subtitle", 20,60, 20);
+
     }
 
     /**
